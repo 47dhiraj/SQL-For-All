@@ -1,2 +1,2 @@
 # SQL-For-All
-Standard Query Language for All
+Structured Query Language - for All
