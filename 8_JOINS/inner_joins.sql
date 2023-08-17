@@ -25,3 +25,28 @@
         INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
         INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 
+
+
+    Another EXAMPLE: See if there are any customers who have a different city listed in their billing city versus their customer city.
+
+        SELECT C.FirstName,
+            C.LastName,
+            C.City AS CustomerCity,
+            I.BillingCity
+        FROM Customers C
+        INNER JOIN Invoices I
+        ON C.CustomerId = I.CustomerId
+        WHERE CustomerCity != BillingCity;          // conditional inner join using WHERE clause
+
+
+    Another Advance EXAMPLE: Find the total number of invoices for each customer along with the customers full name, city and email.
+        
+        SELECT FirstName,
+                LastName,
+                Email,
+                City,
+                COUNT(I.CustomerId) AS Invoices
+        FROM Customers C INNER JOIN Invoices I
+        ON C.CustomerId = I.CustomerId
+        GROUP BY C.CustomerId;
+    

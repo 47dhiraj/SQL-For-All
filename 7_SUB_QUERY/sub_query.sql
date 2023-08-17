@@ -1,5 +1,8 @@
-    
-    SubQuery is query within another query (nested Query)
+
+    SUBQuery ==> A Query within another quyer (query embedded into other queries)
+
+    NOTE: Subquery is mostly used, if u require multiple queries to run. In this case, u can combine multiple queries into one larger query in order to make things more efficient. 
+
 
 
     Basic SYNTAX of Subquery:
@@ -18,3 +21,14 @@
             FROM artists
             WHERE Name LIKE "Led Zeppelin"
         );
+
+
+    ANOTHER Example:
+
+        SELECT AlbumId, Name AS Track_names FROM Tracks
+        WHERE AlbumId IN (
+            SELECT AlbumId
+            FROM Albums 
+            WHERE Title = "Californication"
+        );
+    
